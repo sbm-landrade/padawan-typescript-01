@@ -72,6 +72,15 @@ export class Conta {
         Armazenador.salvar("saldo", this.saldo.toString());
     }
 }
+export class ContaPremium extends Conta {
+    registrarTransacao(transacao) {
+        if (transacao.tipoTransacao === TipoTransacao.DEPOSITO) {
+            console.log("ganhou um bônus de 0.50 centavos");
+            transacao.valor += 0.5;
+        }
+        super.registrarTransacao(transacao);
+    }
+}
 const conta = new Conta("Joana da Silva Olveira");
-console.log(conta.nome);
+const contaPremium = new ContaPremium("Mônica Hillman");
 export default conta;
