@@ -5,8 +5,8 @@ import { Transacao } from "./Transacao.js";
 
 export class Conta {
   nome: string;
-  saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0;
-  transacoes: Transacao[] =
+  protected saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0;
+  protected transacoes: Transacao[] =
     JSON.parse(
       localStorage.getItem("transacoes"),
       (key: string, value: any) => {
@@ -19,6 +19,10 @@ export class Conta {
 
   constructor(nome: string) {
     this.nome = nome;
+  }
+
+  public getTitular() {
+    return this.nome;
   }
 
   getGruposTransacoes(): GrupoTransacao[] { //ordenação  por data
@@ -91,5 +95,5 @@ depositar(valor: number): void {
 }
 
 const conta = new Conta("Joana da Silva Olveira");
-
+console.log(conta.nome);
 export default conta;

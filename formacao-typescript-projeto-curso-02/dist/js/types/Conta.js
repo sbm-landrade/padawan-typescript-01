@@ -11,6 +11,9 @@ export class Conta {
     constructor(nome) {
         this.nome = nome;
     }
+    getTitular() {
+        return this.nome;
+    }
     getGruposTransacoes() {
         const gruposTransacoes = [];
         const listaTransacoes = structuredClone(this.transacoes);
@@ -69,4 +72,5 @@ export class Conta {
     }
 }
 const conta = new Conta("Joana da Silva Olveira");
+console.log(conta.nome);
 export default conta;
