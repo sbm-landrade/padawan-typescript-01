@@ -6,9 +6,9 @@ import { Transacao } from "./Transacao.js";
 
 export class Conta {
   nome: string;
-  protected saldo: number =  Armazenador.obter("saldo") || 0;
+  protected saldo: number =  Armazenador.obter<number>("saldo") || 0;
   protected transacoes: Transacao[] =
-    Armazenador.obter(("transacoes"),
+    Armazenador.obter<Transacao[]>(("transacoes"),
       (key: string, value: any) => {
         if (key === "data") {
           return new Date(value);
