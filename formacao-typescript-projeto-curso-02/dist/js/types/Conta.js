@@ -78,7 +78,7 @@ export class ContaPremium extends Conta {
             console.log("ganhou um bônus de 0.50 centavos");
             transacao.valor += 0.5;
         }
-        this.registrarTransacao(transacao);
+        super.registrarTransacao(transacao);
     }
 }
 const conta = new Conta("Joana da Silva Olveira");
