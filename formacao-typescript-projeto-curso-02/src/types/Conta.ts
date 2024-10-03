@@ -1,3 +1,4 @@
+import { Armazenador } from './Armazenador.js';
 import { GrupoTransacao } from './GrupoTransacao.js';
 import { TipoTransacao } from './TipoTransacao.js';
 import { Transacao } from "./Transacao.js";
@@ -5,7 +6,7 @@ import { Transacao } from "./Transacao.js";
 
 export class Conta {
   nome: string;
-  protected saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0;
+  protected saldo: number =  Armazenador.obter("saldo") || 0;
   protected transacoes: Transacao[] =
     JSON.parse(
       localStorage.getItem("transacoes"),
